@@ -30,6 +30,10 @@ namespace BBS
 
             Console.WriteLine("longSeries Test: " + longSeries);
 
+            bool shortSeries = ShortSeriesTest.ShortSeries(table.resultArray);
+
+            Console.WriteLine("shortSeries Test: " + shortSeries);
+
             Console.ReadLine();
 
 

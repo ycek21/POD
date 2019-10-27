@@ -81,7 +81,7 @@ namespace BBS
 
             for (int i=0; i<20000; i++)
             {
-                if (i == 0)
+                //if (i == 0)
                 {
                     if (xO % 2 == 0)
                     {
@@ -94,7 +94,7 @@ namespace BBS
 
                     xO = (xO * xO) % N;
                 }
-                else
+                /*else
                 {
                     if (xO % 2 == 0)
                     {
@@ -106,7 +106,7 @@ namespace BBS
                     }
 
                     xO = (xO * xO) % N;
-                }
+                }*/
 
             }
             return resultArray;
