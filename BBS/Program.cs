@@ -16,25 +16,25 @@ namespace BBS
         static void Main(string[] args)
         {
            BBS table = new BBS();
-           
 
-            Console.WriteLine("X N: "+ table.x +" " + table.N);
-            Console.WriteLine(table.resultArray.Get(0) +" " + table.resultArray.Get(1) + " " + table.resultArray.Get(19999));
-            
+           bool singleBit = SingleBitTest.SingleBit(table.resultArray);
 
-            bool singleBit = SingleBitTest.SingleBit(table.resultArray);
+           Console.WriteLine("Single bit Test: "+ singleBit);
 
-            Console.WriteLine("Single bit Test: "+ singleBit);
+           bool longSeries = LongSeriesTest.LongSeries(table.resultArray);
 
-            bool longSeries = LongSeriesTest.LongSeries(table.resultArray);
+           Console.WriteLine("longSeries Test: " + longSeries);
 
-            Console.WriteLine("longSeries Test: " + longSeries);
+           bool shortSeries = ShortSeriesTest.ShortSeries(table.resultArray);
 
-            bool shortSeries = ShortSeriesTest.ShortSeries(table.resultArray);
+           Console.WriteLine("shortSeries Test: " + shortSeries);
 
-            Console.WriteLine("shortSeries Test: " + shortSeries);
+           bool poker = Poker.PokerTest(table.resultArray);
 
-            Console.ReadLine();
+           Console.WriteLine("Poker Test: " + poker);
+
+
+           Console.ReadLine();
 
 
         }
