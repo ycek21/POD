@@ -20,10 +20,9 @@ namespace AES
             using var aes = new AesManaged();
             this.key = aes.Key;
             this.IV = aes.IV;
-
         }
 
-        public void EncryptFile(String filename, CipherMode mode)
+        public long EncryptFile(String filename, CipherMode mode)
         {
             Stopwatch timer = new Stopwatch();
             timer.Start();
@@ -52,20 +51,21 @@ namespace AES
                 /* zeby dobrze to zrozumiec =>
                  1.Tworzymy nowy fileStream, w ktorym bedzie zaszyfrowana wiadomosc
                  2. Tworzymy cryptoStream, ktorego targetem jest nasz utowrzony plik, co oznacza, ze jezeli wpiszemy cos do cryptstreama to on to wpisze zaszfrowane do naszego pliku
-                 */
+                 3. Utwiieramy plik, z ktorego bedziemy odczytywac
+                 4. Tworzymy buffe
+                 5. Odczytujemy plik wejsciowy,az do konca
+                 6. CypherStream.Write wpisuje dane do cypherstreamu, kjtory wpisuje szaszyfrowane dane do naszego pliku
+             */
 
             }
             timer.Stop();
 
-            var elapsedTime = timer.ElapsedMilliseconds;
+            return timer.ElapsedMilliseconds;
 
-            Console.WriteLine("Encryption finished " + elapsedTime);
-
-            Console.ReadLine();
 
         }
 
-        public void DecryptFile(String filename, CipherMode mode)
+        public long DecryptFile(String filename, CipherMode mode)
         {
             Stopwatch timer = new Stopwatch();
             timer.Start();
@@ -75,8 +75,6 @@ namespace AES
                 aes.Mode = mode;
 
                 var decryptor = aes.CreateDecryptor(key, IV);
-
-                
 
                 using var fsIn = new FileStream(filename, FileMode.Open);
 
@@ -96,11 +94,7 @@ namespace AES
             }
             timer.Stop();
 
-            var elapsedTime = timer.ElapsedMilliseconds;
-
-            Console.WriteLine("Encryption finished " + elapsedTime);
-
-            Console.ReadLine();
+            return timer.ElapsedMilliseconds;
 
         }
 
