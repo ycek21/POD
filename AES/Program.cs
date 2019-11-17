@@ -18,23 +18,23 @@ namespace AES
             var ecbDecryptS = aes.DecryptFile("AESsmallFile.txt", CipherMode.ECB);
 
             Console.WriteLine("ECB Encrypt time for smallFile: " + ecbEncryptS + " miliseconds");
-            Console.WriteLine("ECB Decrypt time for smallFile: " + ecbDecryptS + " miliseconds");*/
+            Console.WriteLine("ECB Decrypt time for smallFile: " + ecbDecryptS + " miliseconds");
 
-            //var ecbEncryptM = aes.EncryptFile("mediumFile.txt", CipherMode.ECB);
+            var ecbEncryptM = aes.EncryptFile("mediumFile.txt", CipherMode.ECB);
             var ecbDecryptM = aes.DecryptFile("AESmediumFile.txt", CipherMode.ECB);
 
-            /*Console.WriteLine("ECB Encrypt time for mediumFile: " + ecbEncryptM + " miliseconds");
+            Console.WriteLine("ECB Encrypt time for mediumFile: " + ecbEncryptM + " miliseconds");
             Console.WriteLine("ECB Decrypt time for mediumFile: " + ecbDecryptM + " miliseconds");
 
             var ecbEncryptL = aes.EncryptFile("bigFile.txt", CipherMode.ECB);
             var ecbDecryptL = aes.DecryptFile("AESbigFile.txt", CipherMode.ECB);
 
             Console.WriteLine("ECB Encrypt time for bigFile: " + ecbEncryptL + " miliseconds");
-            Console.WriteLine("ECB Decrypt time for bigFile: " + ecbDecryptL + " miliseconds");*/
+            Console.WriteLine("ECB Decrypt time for bigFile: " + ecbDecryptL + " miliseconds");
 
             Console.ReadLine();
 
-            /*var cbcEncryptS = aes.EncryptFile("smallFile.txt", CipherMode.CBC);
+            var cbcEncryptS = aes.EncryptFile("smallFile.txt", CipherMode.CBC);
             var cbcDecryptS = aes.DecryptFile("AESsmallFile.txt", CipherMode.CBC);
 
             Console.WriteLine("CBC Encrypt time for smallFile: " + cbcEncryptS + " miliseconds");
@@ -54,6 +54,15 @@ namespace AES
 
             Console.ReadLine();*/
 
-            }
+            var mineCBCEncrypt = aes.CBCEncrypt("smallFile.txt");
+            var mineCBCDecryption = aes.CBCDecrypt("CBC.txt");
+
+            Console.WriteLine("CBC Encrypt time for bigFile: " + mineCBCEncrypt + " miliseconds");
+            Console.WriteLine("CBC Decrypt time for bigFile: " + mineCBCDecryption + " miliseconds");
+
+            Console.ReadLine();
+
+
+        }
     }
 }

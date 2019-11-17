@@ -22,6 +22,8 @@ namespace AES
             this.IV = aes.IV;
         }
 
+       
+
         public long EncryptFile(String filename, CipherMode mode)
         {
             Stopwatch timer = new Stopwatch();
@@ -99,5 +101,103 @@ namespace AES
         }
 
 
+        public long CBCEncrypt(String filename)
+        {
+
+            var timer = new Stopwatch();
+            timer.Start();
+            using (var aes = new AesManaged()
+            {
+                Mode = CipherMode.ECB
+            })
+            {
+                var encryptor = aes.CreateEncryptor(key, IV);
+                
+                // Create the streams used for encryption.
+                using var fsIn = new FileStream(filename, FileMode.Open);
+                using var fsCrypt = new FileStream("CBC.txt", FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
+                using var encryptedIn = new FileStream("CBC.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                using var csEncrypt = new CryptoStream(fsCrypt, encryptor, CryptoStreamMode.Write);
+                var buffer = new byte[16];
+
+               
+                    var read = fsIn.Read(buffer, 0, buffer.Length);
+                   
+                    var byteStore = Or(IV, buffer);
+                    
+                    csEncrypt.Write(byteStore, 0, read);
+                    fsCrypt.Flush();
+                    while ((read = fsIn.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        encryptedIn.Read(byteStore, 0, byteStore.Length);
+                        byteStore = Or(buffer, byteStore);
+                        csEncrypt.Write(byteStore, 0, read);
+                        fsCrypt.Flush();
+                    }
+                
+                
+            }
+
+            timer.Stop();
+
+            return timer.ElapsedMilliseconds;
+        }
+
+
+
+
+        public long CBCDecrypt(string inputFile)
+        {
+            
+
+            var timer = new Stopwatch();
+            timer.Start();
+            using var aes = new AesManaged();
+            aes.Mode = CipherMode.ECB;
+            var decryptor = aes.CreateDecryptor(key, IV);
+           
+
+            using var fsCrypt = new FileStream("CBC.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using var encryptedIn = new FileStream("CBC.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using var csDecrypt = new CryptoStream(fsCrypt, decryptor, CryptoStreamMode.Read);
+            using var fsOut = new FileStream("mineCBCDecrypted.txt", FileMode.Create);
+
+            var buffer = new byte[16];
+            var buffer2 = new byte[16];
+
+            
+                csDecrypt.Read(buffer, 0, buffer.Length);
+                buffer2 = Or(buffer, IV);
+                fsOut.Write(buffer2, 0, buffer2.Length);
+                while (csDecrypt.Read(buffer, 0, buffer.Length) > 0)
+                {
+                    encryptedIn.Read(buffer2, 0, buffer2.Length);
+                    buffer2 = Or(buffer, buffer2);
+                    fsOut.Write(buffer2, 0, buffer2.Length);
+                }
+            
+           
+
+           
+            timer.Stop();
+
+            return timer.ElapsedMilliseconds;
+
+        }
+        private byte[] Or(byte[] firstArray, byte[] secondArray)
+        {
+            var result = new byte[firstArray.Length];
+
+            for (var i = 0; i < firstArray.Length; ++i)
+            {
+                result[i] = (byte)(firstArray[i] ^ secondArray[i]);
+            }
+
+            return result;
+        }
     }
+
+
+
 }
+
