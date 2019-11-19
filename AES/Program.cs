@@ -57,8 +57,8 @@ namespace AES
             var mineCBCEncrypt = aes.CBCEncrypt("smallFile.txt");
             var mineCBCDecryption = aes.CBCDecrypt("CBC.txt");
 
-            Console.WriteLine("CBC Encrypt time for bigFile: " + mineCBCEncrypt + " miliseconds");
-            Console.WriteLine("CBC Decrypt time for bigFile: " + mineCBCDecryption + " miliseconds");
+            Console.WriteLine("CBC Encrypt time for smallFile: " + mineCBCEncrypt + " miliseconds");
+            Console.WriteLine("CBC Decrypt time for smallFile: " + mineCBCDecryption + " miliseconds");
 
             Console.ReadLine();
 
