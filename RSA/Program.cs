@@ -11,44 +11,54 @@ namespace RSA
     {
         static void Main(string[] args)
         {
-            //var rsa = new RsaCypher();
-
-            //rsa.GenerateKeys();
-            //char jacek = 'a';
-            //BigInteger jacek2 = new BigInteger(100);
-
-            ////var result = rsa.PositivePow(jacek, jacek2);
-
-            //var decrypted = rsa.EncryptText("jacek chyba nie wie za bardzo o co chodzi");
-
-            //var encrypted = rsa.DecryptText(decrypted);
 
             Boolean flag = true;
+            var rsa = new RsaCypher();
 
             do
             {
-                Console.WriteLine("1. Generate keys\n" + "2. Encrypt text\n" + "3. Decipher text\n" + "0. Exit\n");
+                Console.Clear();
+                Console.WriteLine("1. Generate keys\n" + "2. Encrypt text\n" + "0. Exit\n");
                 int choice = Convert.ToInt32(Console.ReadLine());
-                var rsa = new RsaCypher();
+                
                 switch (choice)
                 {
                     case 1:
                     {
                         
                         rsa.GenerateKeys();
+                        Console.Clear();
                         break;
                     }
                     case 2:
                     {
+                        Console.WriteLine("Type text to encrypt");
                         var text = Console.ReadLine();
                         var encryptedText = rsa.EncryptText(text);
-                        Console.WriteLine("Text: " + text + "encrypted: " + encryptedText);
+
+                        Console.WriteLine("Text encrypted with public key \n");
+                        Console.WriteLine("Text : " + text + " encrypted: " + encryptedText + "\n");
+                        Console.WriteLine("If you want to decrypt the message using private key press 1");
+                        
+
+                        int secondChoice = Convert.ToInt32(Console.ReadLine());
+
+                        if (secondChoice == 1)
+                        {
+                            Console.WriteLine("Encrypted text: " + encryptedText + "\n");
+                            var decryptedText = rsa.DecryptText(encryptedText);
+                            Console.WriteLine("Decrypted text: " + decryptedText);
+                            Console.WriteLine("To encrypt one more time press any key \n");
+                            Console.ReadLine();
+
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            flag = false;
+                        }
 
                         break;
-                    }
-                    case 3:
-                    {
-                            break;
                     }
                     case 0:
                     {
