@@ -50,7 +50,7 @@ namespace RSA
              while (!_e.isProbablePrime(100));
          }
 
-         private int GenerateD()
+         private void GenerateD()
          {
             int x = 1;
 
@@ -59,16 +59,7 @@ namespace RSA
                 x++;
             }
 
-            return x;
-            //for (var x = 1; x < _phi; x++)
-            //{
-            //    if (((_e * x) % _phi) == 1)
-            //    {
-            //        return x;
-            //    }
-            //}
-
-            //return 1;
+            _d = x;
 
          }
 
@@ -78,7 +69,7 @@ namespace RSA
          {
             GeneratePhi();
             GenerateE();
-            _d = GenerateD();
+            GenerateD();
          }
 
          public string EncryptText(string message)
@@ -104,6 +95,7 @@ namespace RSA
 
              int j = 0;
 
+
              Int32.TryParse(resultString, out j);
 
              char encryptedCharacter = (char) j;
@@ -114,11 +106,12 @@ namespace RSA
 
          public char DecryptChar(char character)
          {
+             
              var c = new BigInteger(character);
 
             var result = PositivePow(c, _d);
 
-             result %= _n;
+            result %= _n;
 
             var resultString = result.ToString();
 
@@ -145,16 +138,6 @@ namespace RSA
 
              return sb.ToString();
          }
-
-        public static BigInteger ToBigInteger(string value)
-        {
-            BigInteger result = 0;
-            for (int i = 0; i < value.Length; i++)
-            {
-                result = result * 10 + (value[i] - '0');
-            }
-            return result;
-        }
 
 
         public BigInteger PositivePow(BigInteger uno, BigInteger dos)
