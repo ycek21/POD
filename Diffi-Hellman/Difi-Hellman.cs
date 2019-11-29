@@ -13,17 +13,12 @@ namespace Diffi_Hellman
 
         public void GenerateN()
         {
-            this.n = BigInteger.genPseudoPrime(48, 100, new Random());
+            this.n = BigInteger.genPseudoPrime(78, 100, new Random());
         }
 
         public void GenerateG()
         {
             this.g = Help.findPrimitive(this.n);
         }
-
-
-
-
-
     }
 }

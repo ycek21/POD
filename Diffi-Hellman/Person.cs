@@ -14,7 +14,7 @@ namespace Diffi_Hellman
 
         public void GeneratePrivateKey()
         {
-            this.privateKey = BigInteger.genPseudoPrime(48,100,new Random());
+            this.privateKey = BigInteger.genPseudoPrime(78,100,new Random());
         }
 
         public void CalculateX(BigInteger g,BigInteger n)
