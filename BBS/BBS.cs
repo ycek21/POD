@@ -94,19 +94,6 @@ namespace BBS
 
                     xO = (xO * xO) % N;
                 }
-                /*else
-                {
-                    if (xO % 2 == 0)
-                    {
-                        resultArray.Set(i, false);
-                    }
-                    else
-                    {
-                        resultArray.Set(i, true);
-                    }
-
-                    xO = (xO * xO) % N;
-                }*/
 
             }
             return resultArray;

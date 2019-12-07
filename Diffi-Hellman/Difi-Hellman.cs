@@ -15,7 +15,7 @@ namespace Diffi_Hellman
         {
             this.n = BigInteger.genPseudoPrime(78, 100, new Random());
         }
-
+       
         public void GenerateG()
         {
             this.g = Help.findPrimitive(this.n);
