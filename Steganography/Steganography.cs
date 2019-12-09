@@ -88,26 +88,26 @@ namespace Steganography
                                     bm.Save("result.png", ImageFormat.Png);
                                     
 
-                                    Console.WriteLine(bm.GetPixel(0, 0));
-                                    Console.WriteLine(bm.GetPixel(0, 1));
-                                    Console.WriteLine(bm.GetPixel(0, 2));
-                                    Console.WriteLine(bm.GetPixel(0, 3));
-                                    Console.WriteLine(bm.GetPixel(0, 4));
-                                    Console.WriteLine(bm.GetPixel(0, 5));
+                                    //Console.WriteLine(bm.GetPixel(0, 0));
+                                    //Console.WriteLine(bm.GetPixel(0, 1));
+                                    //Console.WriteLine(bm.GetPixel(0, 2));
+                                    //Console.WriteLine(bm.GetPixel(0, 3));
+                                    //Console.WriteLine(bm.GetPixel(0, 4));
+                                    //Console.WriteLine(bm.GetPixel(0, 5));
 
-                                    Console.WriteLine(bm.GetPixel(0, 6));
-                                    Console.WriteLine(bm.GetPixel(0, 7));
-                                    Console.WriteLine(bm.GetPixel(0, 8));
-                                    Console.WriteLine(bm.GetPixel(0, 9));
-                                    Console.WriteLine(bm.GetPixel(0, 10));
-                                    Console.WriteLine(bm.GetPixel(0, 11));
+                                    //Console.WriteLine(bm.GetPixel(0, 6));
+                                    //Console.WriteLine(bm.GetPixel(0, 7));
+                                    //Console.WriteLine(bm.GetPixel(0, 8));
+                                    //Console.WriteLine(bm.GetPixel(0, 9));
+                                    //Console.WriteLine(bm.GetPixel(0, 10));
+                                    //Console.WriteLine(bm.GetPixel(0, 11));
 
-                                    Console.WriteLine(bm.GetPixel(0, 12));
-                                    Console.WriteLine(bm.GetPixel(0, 13));
-                                    Console.WriteLine(bm.GetPixel(0, 14));
-                                    Console.WriteLine(bm.GetPixel(0, 15));
-                                    Console.WriteLine(bm.GetPixel(0, 16));
-                                    Console.WriteLine(bm.GetPixel(0, 17));
+                                    //Console.WriteLine(bm.GetPixel(0, 12));
+                                    //Console.WriteLine(bm.GetPixel(0, 13));
+                                    //Console.WriteLine(bm.GetPixel(0, 14));
+                                    //Console.WriteLine(bm.GetPixel(0, 15));
+                                    //Console.WriteLine(bm.GetPixel(0, 16));
+                                    //Console.WriteLine(bm.GetPixel(0, 17));
 
                                     bm.Dispose();
 
