@@ -31,7 +31,7 @@ namespace Steganography
                     {
                         Console.WriteLine("Pass text do encode");
                         text = Console.ReadLine();
-                        steganography.HideImage("E:/Studia/5 SEMESTR/Podstawy Ochrony Danych/POD/Steganography/bin/Debug/cat.jpeg", text);
+                        steganography.HideImage("E:/Studia/5 SEMESTR/Podstawy Ochrony Danych/POD/Steganography/bin/Debug/cat.png", text);
                         Console.WriteLine("Encryption successful \n");
                         Console.WriteLine("Press enter to go on");
                         Console.ReadLine();

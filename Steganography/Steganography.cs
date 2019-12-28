@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
 
 namespace Steganography
 {
@@ -19,7 +19,6 @@ namespace Steganography
             var pixelColorIndex = 0;
             var messageIndex = 0;
             var currentChar = 0;
-            var eightZeros = 0;
 
             for (var i = 0; i < bm.Height; i++)
             {
