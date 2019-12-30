@@ -32,35 +32,35 @@ namespace HashFunction
                         var md5 = new CreateHash().CalculateMD5(text);
                         stopwatch.Stop();
 
-                        var md5Time = stopwatch.ElapsedMilliseconds;
+                        var md5Time = stopwatch.Elapsed;
                         stopwatch.Reset();
 
                         stopwatch.Start();
                         var sha1 = new CreateHash().CalculateSHA1(text);
                         stopwatch.Stop();
-
-                        var sha1Time = stopwatch.ElapsedMilliseconds;
+                        
+                        var sha1Time = stopwatch.Elapsed;
                         stopwatch.Reset();
 
                         stopwatch.Start();
                         var sha256 = new CreateHash().CalculateSHA256(text);
                         stopwatch.Stop();
 
-                        var sha256Time = stopwatch.ElapsedMilliseconds;
+                        var sha256Time = stopwatch.Elapsed;
                         stopwatch.Reset();
 
                         stopwatch.Start();
                         var sha384 = new CreateHash().CalculateSHA384(text);
                         stopwatch.Stop();
 
-                        var sha384Time = stopwatch.ElapsedMilliseconds;
+                        var sha384Time = stopwatch.Elapsed;
                         stopwatch.Reset();
 
                         stopwatch.Start();
                         var sha512 = new CreateHash().CalculateSHA512(text);
                         stopwatch.Stop();
 
-                        var sha512Time = stopwatch.ElapsedMilliseconds;
+                        var sha512Time = stopwatch.Elapsed;
                         stopwatch.Reset();
 
                         Console.WriteLine("\nMD5 " + md5 + " " + md5.Length *4 + "\n" + "Elapsed time(miliseconds): " + md5Time);
