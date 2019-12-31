@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HashFunction
 {
@@ -63,11 +59,11 @@ namespace HashFunction
                         var sha512Time = stopwatch.Elapsed;
                         stopwatch.Reset();
 
-                        Console.WriteLine("\nMD5 " + md5 + " " + md5.Length *4 + "\n" + "Elapsed time(miliseconds): " + md5Time);
-                        Console.WriteLine("SHA1 " + sha1 + " " + sha1.Length*4 + "\n" + "Elapsed time(miliseconds): " + sha1Time);
-                        Console.WriteLine("SHA256 " + sha256 + " " + sha256.Length*4 + "\n" + "Elapsed time(miliseconds): " + sha256Time);
-                        Console.WriteLine("SHA384 " + sha384 + " " + sha384.Length*4 + "\n" + "Elapsed time(miliseconds): " + sha384Time);
-                        Console.WriteLine("SHA512 "+ sha512 + " " + sha512.Length*4 + "\n" + "Elapsed time(miliseconds): " + sha512Time);
+                        Console.WriteLine("\nMD5 " + md5 + " " + md5.Length *4 + "\n" + "Elapsed time(timestamp): " + md5Time);
+                        Console.WriteLine("SHA1 " + sha1 + " " + sha1.Length*4 + "\n" + "Elapsed time(timestamp): " + sha1Time);
+                        Console.WriteLine("SHA256 " + sha256 + " " + sha256.Length*4 + "\n" + "Elapsed time(timestamp): " + sha256Time);
+                        Console.WriteLine("SHA384 " + sha384 + " " + sha384.Length*4 + "\n" + "Elapsed time(timestamp): " + sha384Time);
+                        Console.WriteLine("SHA512 "+ sha512 + " " + sha512.Length*4 + "\n" + "Elapsed time(timestamp): " + sha512Time);
 
                         break;
                     }
