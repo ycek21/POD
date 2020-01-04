@@ -6,10 +6,10 @@ namespace SecretSharing
 {
     public class TrivialSecretSharing
     {
-        private List<int> _players = new List<int>();
+        private readonly List<int> _players = new List<int>();
         private int _secretNumber;
         private int _numberRange;
-        private Random _random = new Random();
+        private readonly Random _random = new Random();
 
         public void ShareSecret(int numberOfPlayers, int numberRange, int secretNumber)
         {
@@ -24,7 +24,6 @@ namespace SecretSharing
                 }
                 else
                 {
-                    //this._players.Add(((_secretNumber - this._players.Sum()) % _numberRange));
                     this._players.Add(mod((_secretNumber-this._players.Sum()),_numberRange));
                 }
             }
