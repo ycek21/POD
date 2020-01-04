@@ -10,12 +10,12 @@ namespace SecretSharing
     {
         static void Main(string[] args)
         {
-            var player = new List<int> {1, 2, 3, 4, 5};
+            var trivialMethod = new TrivialSecretSharing();
 
-            var sum = player.Sum();
+            trivialMethod.ShareSecret(4,200,153);
+            var number = trivialMethod.RetrieveSecret();
 
-            Console.WriteLine(sum);
-
+            Console.WriteLine("The secret number is: " + number);
             Console.ReadLine();
         }
     }
