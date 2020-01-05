@@ -16,7 +16,7 @@ namespace SecretSharing
             this._secretNumber = secretNumber;
             this._numberRange = numberRange;
 
-            for (int i = 0; i < numberOfPlayers; i++)
+            for (var i = 0; i < numberOfPlayers; i++)
             {
                 if (i != numberOfPlayers - 1)
                 {
@@ -24,7 +24,7 @@ namespace SecretSharing
                 }
                 else
                 {
-                    this._players.Add(mod((_secretNumber-this._players.Sum()),_numberRange));
+                    this._players.Add(Mod((_secretNumber-this._players.Sum()),_numberRange));
                 }
             }
         }
@@ -37,7 +37,7 @@ namespace SecretSharing
             return resolvedSecret;
         }
 
-        private int mod(int x, int m)
+        private int Mod(int x, int m)
         {
             return (x % m + m) % m;
         }

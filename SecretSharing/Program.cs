@@ -12,11 +12,12 @@ namespace SecretSharing
         {
             var trivialMethod = new TrivialSecretSharing();
 
-            trivialMethod.ShareSecret(4,200,153);
+            trivialMethod.ShareSecret(4, 200, 153);
             var number = trivialMethod.RetrieveSecret();
 
             Console.WriteLine("The secret number is: " + number);
             Console.ReadLine();
+
         }
     }
 }
