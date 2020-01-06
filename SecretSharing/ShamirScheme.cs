@@ -37,9 +37,37 @@ namespace SecretSharing
                 }
 
                 result = result % _p;
+                //result = ModInt(result, _p);
 
                 _shares.Add(result);
             }
+        }
+
+        public int RetrieveSecret()
+        {
+            double secretNumber = 0;
+            
+
+            for (int i = 0; i < _t; i++)
+            {
+                double product = 1;
+                var temporary = _shares[i];
+
+                for (int j = 1; j <= _t; j++)
+                {
+                    if ((i + 1) != j)
+                    {
+                        product *= ((-j) / (double)((i + 1) - j));
+                    }
+                }
+
+                product *= temporary;
+                product = product % _p;
+                secretNumber += product;
+
+            }
+
+            return (int)secretNumber;
         }
 
     }

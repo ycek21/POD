@@ -20,7 +20,10 @@ namespace SecretSharing
 
             var shamir = new ShamirScheme();
 
-            shamir.ShareSecret(120,4,3);
+            shamir.ShareSecret(500, 4, 3);
+            var value = shamir.RetrieveSecret();
+            Console.WriteLine("The secret number is: " + value);
+            Console.ReadLine();
         }
     }
 }
