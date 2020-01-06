@@ -10,14 +10,17 @@ namespace SecretSharing
     {
         static void Main(string[] args)
         {
-            var trivialMethod = new TrivialSecretSharing();
+            //var trivialMethod = new TrivialSecretSharing();
 
-            trivialMethod.ShareSecret(4, 200, 153);
-            var number = trivialMethod.RetrieveSecret();
+            //trivialMethod.ShareSecret(4, 200, 153);
+            //var number = trivialMethod.RetrieveSecret();
 
-            Console.WriteLine("The secret number is: " + number);
-            Console.ReadLine();
+            //Console.WriteLine("The secret number is: " + number);
+            //Console.ReadLine();
 
+            var shamir = new ShamirScheme();
+
+            shamir.ShareSecret(120,4,3);
         }
     }
 }

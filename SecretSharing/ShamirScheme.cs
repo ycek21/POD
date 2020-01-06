@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SecretSharing
 {
@@ -36,8 +33,10 @@ namespace SecretSharing
 
                 for (var k = 1; k <= _t-1; k++)
                 {
-                    result += 
+                    result += (_aArray[k] * (int)Math.Pow(j,k));
                 }
+
+                result = result % _p;
 
                 _shares.Add(result);
             }
