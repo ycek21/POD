@@ -63,7 +63,7 @@ namespace VisualCryptography
 
          var visualCryptography = new VisualCryptography("E:/Studia/5 SEMESTR/Podstawy Ochrony Danych/POD/VisualCryptography/bin/Debug/picture.png");
          visualCryptography.CreatePictures();
-
+         visualCryptography.SuperimposePictures();
          Console.ReadLine();
 
         }

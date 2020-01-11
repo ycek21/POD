@@ -16,9 +16,9 @@ namespace VisualCryptography
         public Bitmap ResultPicture;
         private readonly Random _random = new Random();
 
-        private readonly Color[,] _sharesTable = new Color[,]{{Color.White, Color.Black, Color.Black, Color.White },
-            { Color.Black, Color.White , Color.White , Color.Black},{ Color.White , Color.Black, Color.White , Color.Black},
-            { Color.Black, Color.White, Color.Black,Color.White },{Color.Black,Color.Black,Color.White,Color.White},{Color.White,Color.White,Color.Black,Color.Black}};
+        private readonly Color[,] _sharesTable = new Color[,]{{Color.Empty, Color.Black, Color.Black, Color.Empty },
+            { Color.Black, Color.Empty , Color.Empty , Color.Black},{ Color.Empty , Color.Black, Color.Empty , Color.Black},
+            { Color.Black, Color.Empty, Color.Black,Color.Empty },{Color.Black,Color.Black,Color.Empty,Color.Empty},{Color.Empty,Color.Empty,Color.Black,Color.Black}};
         public VisualCryptography(string filePath)
         {
             this._originalFile = new Bitmap(filePath);
@@ -83,9 +83,36 @@ namespace VisualCryptography
         {
             this.ResultPicture = new Bitmap(FirstPicture.Width,FirstPicture.Height);
 
+            //for (var x = 0; x < FirstPicture.Width; x++)
+            //{
+            //    for (var y = 0; y < FirstPicture.Height; y++)
+            //    {
+            //        if ((FirstPicture.GetPixel(x, y).R == 0 && FirstPicture.GetPixel(x, y).B == 0 &&
+            //             FirstPicture.GetPixel(x, y).B == 0) ||
+            //            (SecondPicture.GetPixel(x, y).R == 0 && SecondPicture.GetPixel(x, y).B == 0 &&
+            //             SecondPicture.GetPixel(x, y).B == 0))
+            //        {
+            //            this.ResultPicture.SetPixel(x, y, Color.Black);
+            //        }
+            //        else
+            //        {
+            //            this.ResultPicture.SetPixel(x, y, Color.White);
+            //        }
+            //    }
+            //}
 
+            Image imageBackground = Image.FromFile("firstPicture.png");
+            Image imageOverlay = Image.FromFile("secondPicture.png");
 
-            ResultPicture.Save("resultPicture.png",ImageFormat.Png);
+            Image img = new Bitmap(FirstPicture.Width,FirstPicture.Height);
+            var g = Graphics.FromImage(img);
+
+            g.DrawImage(imageBackground, new Point(0,0));
+            g.DrawImage(imageOverlay, new Point(0, 0));
+
+            img.Save("resultPicture.png",ImageFormat.Png);
+
+            //ResultPicture.Save("resultPicture.png",ImageFormat.Png);
         }
 
     }
